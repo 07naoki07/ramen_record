@@ -1,1 +1,19 @@
 <h1>投稿一覧</h1>
+
+<% @records.each do |record| %>
+<table>
+ <tbody>
+ <td>
+  <%= image_tag record.get_image(40,40) %>
+ </td>
+ <td>
+  
+ </td>
+ <td>
+  <%= record.shop_name %>
+ </td>
+ <td>
+  <%= record.name %>
+ </td>
+ </tbody>
+</table>
