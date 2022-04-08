@@ -1,17 +1,30 @@
 Rails.application.routes.draw do
+　root to:"homes#top"
 
-  devise_for :admins, controllers: {
-  sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
-  }
-  devise_for :users, controllers: {
-  sessions:      'users/sessions',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations'
+  # 会員用
+  # URL /users/sign_in ...
+  devise_for :users,skip: [:passwords], controllers: {
+    registrations: "user/registrations",
+    sessions: 'user/sessions'
   }
 
-  get 'homes/top'
-  root to:"homes#top"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # 管理者用
+  # URL /admin/sign_in ...
+  devise_for :admins, skip: [:passwords] ,controllers: {
+    registrations: "admins/registrations",
+    sessions: "admins/sessions"
+  }
+
+  namespace :admin do
+　 resources :records, only:[:index, :show, :destroy]
+　 resources :comments, only:[:show, :destroy]
+　end
+
+  namespace :user do
+   resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy]
+   resources :likes, only:[:create, :deestroy]
+   resources :comments, only:[:create, :destroy]
+   resources :searches, only:[:search]
+  end
+end
 end
