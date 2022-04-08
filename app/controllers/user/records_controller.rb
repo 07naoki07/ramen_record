@@ -17,6 +17,7 @@ class User::RecordsController < ApplicationController
 
   def show
    @record = Record.find(params[:id])
+   @record_comment =RecordComment.new
   end
 
   def edit
