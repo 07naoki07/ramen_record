@@ -4,7 +4,7 @@
  <tbody>
   <tr>
    <td>
-    <%= imege_tag @record .get_image(40,40) %>
+    <%= image_tag @record.get_image %>
    </td>
    <td></td>
    <td>
@@ -17,7 +17,13 @@
    <td>
     <%= @record.review%>
    </td>
+   <td>
+    <%#= render "user/comments/form", record: @record, comment: @comment %>
+   </td>
+   <td>
+    <%#= render "user/comments/comments", record: @record, comment: @comment, comments: @comments%>
+   </td>
   </tr>
- 
+
  </tbody>
 </table>

@@ -3,7 +3,7 @@ class CreateRecords < ActiveRecord::Migration[6.1]
     create_table :records do |t|
 
       t.integer :user_id
-      t.integer :name
+      t.string :name
       t.string :shop_name
       t.text :review
       t.float :rate

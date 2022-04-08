@@ -1,9 +1,9 @@
-<% record.record_comments.each do |record_comment| %>
- <%= image_tag record_comment.user.get_profile_image(40,40) %>
- <%= record_comment.user.name %>
- <%= record_comment.comment %>
- 
- <% if record_comment.user == current_user %>
-  　<%= link_to "Destroy", record_record_comment_path(record_comment.record, record_comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class:"btn btn-sm btn-danger"%>
+<% comments.each do |comment| %>
+ <%= image_tag comment.user.get_profile_image(40,40) %>
+ <%= comment.user.name %>
+ <%= comment.comment %>
+
+ <% if comment.user == current_user %>
+  　<%= link_to "Destroy", comment_path(comment.record, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class:"btn btn-sm btn-danger"%>
  <% end %>
 <% end %>

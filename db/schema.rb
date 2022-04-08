@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_195513) do
 
   create_table "records", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "name"
+    t.string "name"
     t.string "shop_name"
     t.text "review"
     t.float "rate"

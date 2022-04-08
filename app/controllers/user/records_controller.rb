@@ -12,12 +12,13 @@ class User::RecordsController < ApplicationController
    @record = Record.new(record_params)
    @record.user_id = current_user.id
    @record.save
-   redirect_to records_path
+   redirect_to user_records_path
   end
 
   def show
    @record = Record.find(params[:id])
-   @record_comment =RecordComment.new
+   @comment = Comment.new
+   @comments = @record.comments
   end
 
   def edit
