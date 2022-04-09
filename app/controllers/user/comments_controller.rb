@@ -2,7 +2,7 @@ class User::CommentsController < ApplicationController
 
  def create
   @record = Record.find(params[:record_id])
-  @comment = current_user.records.new(comment_params)
+  @comment = current_user.comments.new(comment_params)
   @comment.record_id =@record.id
   @comment.save
   redirect_to request.referer

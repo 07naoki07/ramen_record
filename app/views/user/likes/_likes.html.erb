@@ -1,0 +1,9 @@
+<% if record.liked_by?(current_user) %>
+  <%= link_to record_likes_path(record), method: :delete do %>
+   ♥<%= record.likes.count %> いいね
+  <% end %>
+<% else %>
+  <%= link_to record_likes_path(record), method: :post do %>
+   ♡<%= record.likes.count %> いいね
+  <% end %>
+<% end %>

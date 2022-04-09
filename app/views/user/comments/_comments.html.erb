@@ -1,9 +1,9 @@
-<% comments.each do |comment| %>
+<% record.comments.each do |comment| %>
  <%= image_tag comment.user.get_profile_image(40,40) %>
  <%= comment.user.name %>
  <%= comment.comment %>
 
  <% if comment.user == current_user %>
-  　<%= link_to "Destroy", comment_path(comment.record, comment), method: :delete, remote: true, data: {confirm: "本当に削除しますか？"}, class:"btn btn-sm btn-danger"%>
+  <%= link_to "削除", record_comment_path(record, comment), method: :delete, remote: true %>
  <% end %>
 <% end %>

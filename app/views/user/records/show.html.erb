@@ -18,10 +18,13 @@
     <%= @record.review%>
    </td>
    <td>
-    <%#= render "user/comments/form", record: @record, comment: @comment %>
+    <%= render "user/comments/form", record: @record, comment: @comment %>
    </td>
    <td>
-    <%#= render "user/comments/comments", record: @record, comment: @comment, comments: @comments%>
+    <%= render "user/comments/comments", record: @record, comment: @comment, comments: @comments%>
+   </td>
+   <td>
+    <%= render "user/likes/likes", record: @record %>
    </td>
   </tr>
 

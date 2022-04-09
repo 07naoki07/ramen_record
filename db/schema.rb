@@ -55,13 +55,14 @@ ActiveRecord::Schema.define(version: 2022_04_04_195513) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "record_id"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "record"
+    t.integer "record_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

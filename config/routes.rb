@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     sessions: "admins/sessions"
   }
 
-  namespace :user do
-    resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy]
-    resources :likes, only:[:create, :deestroy]
+  scope module: :user do
+    resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy] do
+    resource :likes, only:[:create, :destroy]
     resources :comments, only:[:create, :destroy]
+    end
     resources :searches, only:[:search]
     get 'user/show'
   end

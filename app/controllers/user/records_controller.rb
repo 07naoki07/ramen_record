@@ -12,7 +12,7 @@ class User::RecordsController < ApplicationController
    @record = Record.new(record_params)
    @record.user_id = current_user.id
    @record.save
-   redirect_to user_records_path
+   redirect_to records_path
   end
 
   def show
