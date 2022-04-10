@@ -6,14 +6,17 @@
    <td>
     <%= image_tag @record.get_image %>
    </td>
-   <td></td>
+   <td>
+    <%= @record.created_at %>
+   </td>
    <td>
     <%= @record.shop_name%>
    </td>
    <td>
     <%= @record.name%>
    </td>
-   <td></td>
+   <td>
+   </td>
    <td>
     <%= @record.review%>
    </td>
@@ -26,7 +29,9 @@
    <td>
     <%= render "user/likes/likes", record: @record %>
    </td>
+   <td>
+   </td>
   </tr>
-
  </tbody>
 </table>
+<%= link_to "編集する",edit_record_path(@record.id),class:"btn btn-sm btn-success" %>

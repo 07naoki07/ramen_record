@@ -6,7 +6,7 @@ class CreateRecords < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :shop_name
       t.text :review
-      t.float :rate
+      t.float :rate, null: false, default: 0
       t.string :address
 
       t.timestamps
