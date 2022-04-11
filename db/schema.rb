@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_195513) do
     t.integer "user_id"
     t.string "name"
     t.string "shop_name"
-    t.text "review"
+    t.text "caption"
     t.float "rate", default: 0.0, null: false
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_195513) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
-    t.integer "follow_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
