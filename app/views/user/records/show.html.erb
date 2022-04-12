@@ -4,8 +4,10 @@
  <tbody>
   <tr>
    <td>
-    <%= image_tag @record.get_image %>
+    <%= image_tag @record.get_image, size: '200x300' %>
    </td>
+  </tr>
+  
    <td>
     <%= @record.created_at %>
    </td>

@@ -1,18 +1,53 @@
-<h1>投稿フォーム</h1>
-  <%= form_with model: @record,:url => {:action => :create} do |f| %>
-    <h4>日付</h4>
-    　<%= f.date_field :created_at %>
-    <h4>画像</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h4>ラーメン店名</h4>
-      <%= f.text_field :shop_name %>
-    <h4>ラーメン名</h4>
-    　<%= f.text_field :name %>
-    <div class="field" id="star">
-      <%= f.label :rate, "星評価：" %>
-      <%= f.hidden_field :rate, id: :review_star %>
+
+  <h3>投稿フォーム</h3>
+    <%= form_with model: @record,:url => {:action => :create} do |f| %>
+    
+    <div class="form-group">
+     <%= f.label :image, "ラーメン写真" %>
+    <div class="col-auto">
+     <%= f.file_field :image %>
     </div>
-    <h4>説明</h4>
-      <%= f.text_area :caption %>
-    <%= f.submit '投稿' %>
-  <% end %>
+    </div>
+    
+    <div class="form-group">
+     <%= f.label :name, "メニュー" %>
+    <div class="col-auto">
+     <%= f.text_field :name %>
+    </div>
+    </div>
+    
+    <div class="form-group">
+     <%= f.label :shop_name, "店名" %>
+    <div class="col-auto">
+     <%= f.text_field :shop_name %>
+    </div>
+    </div>
+    
+    <div class="form-group">
+     <%= f.label :caption, "説明" %>
+    <div class="col-auto">
+     <%= f.text_area :caption %>
+    </div>
+    </div>
+    
+    <div class="form-group">
+     <%= f.label :created_at, "食べた日付" %>
+    <div class="col-auto">
+     <%= f.date_field :created_at %>
+    </div>
+    </div>
+    
+    <div class="field" id="star">
+     <%= f.label :rate, "星評：" %>
+    <div class="col-auto">
+     <%= f.hidden_field :rate, id: :review_star %>
+    </div>
+    </div>
+    
+    <div class="actions">
+     <%= f.submit '投稿',class:"btn btn-sm btn-success" %>
+    </div>
+    
+    <% end %>
+ </div>
+</div>

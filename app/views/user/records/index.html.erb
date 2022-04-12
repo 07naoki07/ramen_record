@@ -1,25 +1,23 @@
-<h1>投稿一覧</h1>
 
-<%= link_to new_record_path do %>
- <i class="fas fa-allergies"></i>新規登録
-<% end %>
+<h1>投稿一覧</h1>
 <% @records.each do |record| %>
-<table>
- <tbody>
- <td>
-  <%= link_to record_path(record) do %>
-   <%= image_tag record.get_image %>
-  <% end %>
- </td>
- <td>
-  <%= record.created_at %>
- </td>
- <td>
-  <%= record.shop_name %>
- </td>
- <td>
-  <%= record.name %>
- </td>
- </tbody>
-</table>
+<div class="card w-50 mx-auto mt-4">
+ <div class="row no-gutters">
+  <div class="col-lg-6">
+   <%= link_to record_path(record) do %>
+    <%= image_tag record.get_image,size: '200x200' %>
+   <% end %>
+  </div>
+  <div class="col-lg-6">
+  　<div class="card-body">
+     <h4 class="card-title"><%= record.shop_name %></h4>
+     <p class="card-text"><%= record.name %></p>
+     <p class="card-text"><%= record.rate %></p>
+     <small class="text-muted"> <%= record.created_at %></small>
+    </div>
+  </div>
+ </div>
+</div>
 <% end %>
+
+
