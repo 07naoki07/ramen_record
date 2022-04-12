@@ -1,39 +1,76 @@
-<h1>投稿詳細</h1>
-
-<table>
- <tbody>
-  <tr>
-   <td>
-    <%= image_tag @record.get_image, size: '200x300' %>
-   </td>
-  </tr>
-  
-   <td>
-    <%= @record.created_at %>
-   </td>
-   <td>
-    <%= @record.shop_name%>
-   </td>
-   <td>
-    <%= @record.name%>
-   </td>
-   <td>
-   </td>
-   <td>
-    <%= @record.caption%>
-   </td>
-   <td>
-    <%= render "user/comments/form", record: @record, comment: @comment %>
-   </td>
-   <td>
-    <%= render "user/comments/comments", record: @record, comment: @comment, comments: @comments%>
-   </td>
-   <td>
-    <%= render "user/likes/likes", record: @record %>
-   </td>
-   <td>
-   </td>
-  </tr>
- </tbody>
-</table>
-<%= link_to "編集する",edit_record_path(@record.id),class:"btn btn-sm btn-success" %>
+<div class= "container">
+ <h1>投稿詳細</h1>
+ <div class= "row">
+  <div class="col-lg-4">
+   <%= image_tag @record.get_image, size: '200x300' %>
+  </div>
+  <div class="col-lg-8">
+  <table class = "table table-borderless">
+   <tbody>
+    <tr>
+     <td>日時</td>
+     <td>
+      <%= @record.created_at %>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>投稿ユーザー名</td>
+     <td>
+      <%= @user.name %>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>店名</td>
+     <td>
+      <%= @record.shop_name%>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>メニュー名</td>
+     <td>
+      <%= @record.name%>
+     </td>
+    </tr>
+     
+    <tr>
+     <td>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>説明</td>
+     <td>
+      <%= @record.caption%>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>いいね</td>
+     <td>
+      <%= render "user/likes/likes", record: @record %>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>コメント</td>
+     <td>
+      <%= render "user/comments/form", record: @record, comment: @comment %>
+     </td>
+    </tr>
+    
+    <tr>
+     <td>コメント一覧</td>
+     <td>
+      <%= render "user/comments/comments", record: @record, comment: @comment, comments: @comments%>
+     </td>
+    </tr>
+   
+   </tbody>
+  </table>
+  <%= link_to "編集する",edit_record_path(@record.id),class:"btn btn-sm btn-success" %>
+  </div>
+ </div>
+</div>
