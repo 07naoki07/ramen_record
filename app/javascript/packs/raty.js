@@ -19,7 +19,7 @@
   }
 }(this, function($) {
   'use strict';
-
+  console.log('raty')
   $.raty = {
     cancelButton: false,
     cancelClass:  'raty-cancel',
