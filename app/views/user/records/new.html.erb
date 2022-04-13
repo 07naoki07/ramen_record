@@ -38,7 +38,7 @@
     </div>
 
     <div class="field">
-     <%= f.label :rate, "星評：" %>
+     <%= f.label :rate, "評価" %>
      <div id="star"></div>
     <div class="col-auto">
      <%#= f.hidden_field :rate, id: :review_star %>
@@ -61,6 +61,7 @@ console.log($('#star').html())
   starOff: "<%= asset_path('star-off.png') %>",
   starHalf: "<%= asset_path('star-half.png') %>",
   scoreName: "record[rate]"
+  half: true,
  });
 })
 </script>

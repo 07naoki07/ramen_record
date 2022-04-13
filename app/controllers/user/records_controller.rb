@@ -17,7 +17,7 @@ class User::RecordsController < ApplicationController
 
   def show
    @record = Record.find(params[:id])
-   @user = User.find(params[:id])
+   @user = @record.user
    @comment = Comment.new
    @comments = @record.comments
   end
