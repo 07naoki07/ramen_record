@@ -2,7 +2,7 @@
  <h1>投稿詳細</h1>
  <div class= "row">
   <div class="col-lg-4">
-   <%= image_tag @record.get_image, size: '200x300' %>
+   <%= image_tag @record.get_image, size: '300x300' %>
   </div>
   <div class="col-lg-8">
   <table class = "table table-borderless">
@@ -36,7 +36,9 @@
     </tr>
      
     <tr>
+     <td>評価</td>
      <td>
+      <div id="star-rate-<%= @record.id %>"></div>
      </td>
     </tr>
     
@@ -74,3 +76,14 @@
   </div>
  </div>
 </div>
+<script>
+ $('#star-rate-<%= @record.id %>').raty({
+  size: 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  half: true,
+  readOnly: true,
+  score: <%= @record.rate %>,
+  });
+</script>  

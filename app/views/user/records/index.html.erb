@@ -12,10 +12,21 @@
   　<div class="card-body">
      <h4 class="card-title"><%= record.shop_name %></h4>
      <p class="card-text"><%= record.name %></p>
-     <p class="card-text"><%= record.rate %></p>
+     <div id="star-rate-<%= record.id %>"></div>
      <small class="text-muted"> <%= record.created_at %></small>
     </div>
   </div>
  </div>
 </div>
+<script>
+ $('#star-rate-<%= record.id %>').raty({
+  size: 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  half: true,
+  readOnly: true,
+  score: <%= record.rate %>,
+  });
+</script>  
 <% end %>

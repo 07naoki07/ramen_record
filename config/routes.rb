@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   }
 
   scope module: :user do
+    resources :ramen_shops, only:[:create, :index, :edit, :update]
     resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :likes, only:[:create, :destroy]
     resources :comments, only:[:create, :destroy]
