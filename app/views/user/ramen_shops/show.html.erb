@@ -1,0 +1,20 @@
+<table class = "table">
+  <thead>
+   <tr>
+    <th>店舗一覧</th>
+    <th></th>
+   </tr>
+  </thead>
+  <tbody>
+   <% @ramen_shops.each do |genre| %>
+   <tr>
+    <td><%= ramen_shop.name %></td>
+    <td>
+     <%= link_to '編集する', edit_ramen_shop_path(ramen_shop.id), class: "btn btn-success" %>
+    </td>
+   </tr>
+   <% end %>
+  </tbody>
+ </table>
+ </div>
+</div>

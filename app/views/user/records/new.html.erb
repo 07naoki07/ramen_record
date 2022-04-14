@@ -1,6 +1,5 @@
-
-  <h3>投稿フォーム</h3>
-    <%= form_with model: @record,:url => {:action => :create} do |f| %>
+<h3>投稿フォーム</h3>
+ <%= form_with model: @record,:url => {:action => :create} do |f| %>
 
     <div class="form-group">
      <%= f.label :image, "ラーメン写真" %>
@@ -40,27 +39,23 @@
     <div class="form-group" id="star">
      <%= f.label :rate, "評価" %>
     <div class="col-auto">
-     <%= f.hidden_field :rate, id: :review_star %>
+     <%= f.hidden_field :star, id: :review_star %>
     </div>
     </div>
 
     <div class="actions">
      <%= f.submit '投稿',class:"btn btn-sm btn-success" %>
     </div>
-
-    <% end %>
- </div>
-</div>
-<%= javascript_pack_tag 'raty.js' %>
-<script>
-document.addEventListener("turbolinks:load", function(){
-console.log($('#star').html())
- $('#star').raty({
-  starOn: "<%= asset_path('star-on.png') %>",
-  starOff: "<%= asset_path('star-off.png') %>",
-  starHalf: "<%= asset_path('star-half.png') %>",
-  scoreName: "record[rate]"
-  half: true,
- });
-})
-</script>
+    
+    <script>
+     $('#star').raty({
+     size: 36,
+     starOn: "<%= asset_path('star-on.png') %>",
+     starOff: "<%= asset_path('star-off.png') %>",
+     starHalf: "<%= asset_path('star-half.png') %>",
+     scoreName: "record[star]",
+     half: true
+     });
+    </script>
+    
+ <% end %>
