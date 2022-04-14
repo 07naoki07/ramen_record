@@ -37,10 +37,10 @@ class User::RecordsController < ApplicationController
     @record.destroy
     redirect_to records_path
   end
-
+  
   private
-
+  
   def record_params
-   params.require(:record).permit(:user_id, :name, :shop_name, :caption, :rate, :address, :image)
+   params.require(:record).permit(:user_id, :name, :shop_name, :caption, :rate, :address, :image, :star)
   end
 end

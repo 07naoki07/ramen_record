@@ -1,0 +1,4 @@
+<%= search_form_for @search, products_path do |f| %>
+  <%= f.text_field :name_cont, placeholder: '名前を入力...' %>
+  <%= f.submit ("検索する") %>
+<% end %>
