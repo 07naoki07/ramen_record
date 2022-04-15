@@ -14,12 +14,11 @@ Rails.application.routes.draw do
 
   scope module: :user do
     resources :ramen_shops, only:[:create, :index, :edit, :update]
-    resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy] do
+    resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy, :search] do
     resource :likes, only:[:create, :destroy]
     resources :comments, only:[:create, :destroy]
     end
-    resources :searches, only:[:search]
-    resources :user, only:[:show] do
+    resources :user, only:[:show, :edit, :update, :index] do
      resource :relationships, only: [:create, :destroy]
       get 'followings' => 'relationships#followings', as: 'followings'
       get 'followers' => 'relationships#followers', as: 'followers'
