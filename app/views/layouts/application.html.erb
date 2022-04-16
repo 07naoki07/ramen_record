@@ -13,13 +13,13 @@
 
   <body>
   <header>
-   <%= render 'layouts/heder' %>
+   <%= render 'layouts/heder',q: @q %>
   </header>
-  
+
   <main>
    <%= yield %>
   </main>
-  
+
   <footer>
     <%= render 'layouts/footer' %>
   </footer>
