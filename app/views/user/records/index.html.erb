@@ -12,6 +12,7 @@
      <h4 class="card-title"><%= record.shop_name %></h4>
      <p class="card-text"><%= record.name %></p>
      <div id="star-rate-<%= record.id %>"></div>
+     <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
      <small class="text-muted"> <%= record.created_at %></small>
     </div>
   </div>
