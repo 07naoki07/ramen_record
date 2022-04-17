@@ -5,7 +5,7 @@
   <div class="col-4 text-center">
    <h2>
    <%= link_to root_path,class:'text-dark' do %>
-    <%= image_tag "ramen_icon", size: '60x60'%>ラーメン記録
+    <%= image_tag "ramen_icon.png", size: '60x60'%>ラーメン記録
    <% end %>
    </h2>
   </div>
@@ -56,7 +56,7 @@
      <% end %>
     </li>
    <% else %>
-   
+
     <li class="nav-item">
      <%=link_to user_index_path,class:'text-light nav-link' do %>
       <i class="fas fa-users"></i>ユーザー一覧
@@ -68,7 +68,7 @@
       <i class="fas fa-book"></i>投稿一覧
      <% end %>
     </li>
-   
+
     <li class="nav-item">
      <%= link_to new_user_registration_path,class:'text-light nav-link' do %>
       <i class="fas fa-user-plus"></i>新規登録
