@@ -5,7 +5,7 @@ class User::RecordsController < ApplicationController
   end
 
   def index
-   @records =Record.all
+   @records =Record.page(params[:page])
   end
 
   def create
@@ -37,7 +37,7 @@ class User::RecordsController < ApplicationController
     @record.destroy
     redirect_to records_path
   end
-  
+
   private
 
   def record_params

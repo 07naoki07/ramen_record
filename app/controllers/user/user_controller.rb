@@ -5,7 +5,7 @@ class User::UserController < ApplicationController
   end
 
  def index
-   @users = User.all
+   @users = User.page(params[:page])
  end
 
  def edit
