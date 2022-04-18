@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :records, only:[:index, :show, :destroy]
     resources :comments, only:[:index, :show, :destroy]
+    resources :user, only:[:index, :destroy]
   end
 
 end

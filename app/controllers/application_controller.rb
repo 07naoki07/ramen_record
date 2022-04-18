@@ -4,9 +4,23 @@ class ApplicationController < ActionController::Base
   before_action :set_search
 
   before_action :authenticate_user!,only: [:show, :edit]
+  
+  def after_sign_up_path_for(resource)
+   case resource
+   when Admin
+    admin_records_path
+   when User
+    records_path
+   end
+  end
 
   def after_sign_in_path_for(resource)
+   case resource
+   when Admin
+    admin_records_path
+   when User
     records_path
+   end
   end
 
   def after_sign_out_path_for(resource)

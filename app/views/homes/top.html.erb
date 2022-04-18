@@ -4,22 +4,31 @@
  </div>
 <h4>NEW記録</h4>
  <div class="row">
-  <div class="col-lg-4">
    <% @records.each do |records| %>
-   <img class="rounded-circle">
+  <div class="col-lg-4 col-md-6 mb-4">
+　 <img class="rounded-circle">
     <%=image_tag records.get_image,size: '140x140' %>
-   </img>
-   <h2><%= records.name %></h2>
-   <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-   <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-  <% end %>
+    </img>
+    <h2><%= records.name %></h2>
+    <div id="star-rate-<%= records.id %>"></div>
+    <small class="text-muted"> ♡<%= records.likes.count %> いいね</small>
+    <p> <%= link_to "記録詳細",record_path(records.id),class:"btn btn-sm btn-success" %></p>
   </div><!-- /.col-lg-4 -->
+  <script>
+  $('#star-rate-<%= records.id %>').raty({
+   size: 36,
+   starOff:  '<%= asset_path('star-off.png') %>',
+   starOn : '<%= asset_path('star-on.png') %>',
+   starHalf: '<%= asset_path('star-half.png') %>',
+   half: true,
+   readOnly: true,
+   score: <%= records.rate %>,
+   });
+  </script>
+  <% end %>
  </div><!-- /.row -->
 
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
+<hr class="featurette-divider">
 
     <div class="row featurette">
       <div class="col-md-7">
@@ -56,7 +65,5 @@
     </div>
 
     <hr class="featurette-divider">
-
-    <!-- /END THE FEATURETTES -->
  </div><!-- /.row -->
 </div><!-- /.container -->
