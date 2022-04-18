@@ -4,25 +4,25 @@
  </div>
 <h4>NEW記録</h4>
  <div class="row">
-   <% @records.each do |records| %>
+   <% @records.each do |record| %>
   <div class="col-lg-4 col-md-6 mb-4">
 　 <img class="rounded-circle">
-    <%=image_tag records.get_image,size: '140x140' %>
+    <%=image_tag record.get_image,size: '140x140' %>
     </img>
-    <h2><%= records.name %></h2>
-    <div id="star-rate-<%= records.id %>"></div>
-    <small class="text-muted"> ♡<%= records.likes.count %> いいね</small>
-    <p> <%= link_to "記録詳細",record_path(records.id),class:"btn btn-sm btn-success" %></p>
+    <h2><%= record.name %></h2>
+    <div id="star-rate-<%= record.id %>"></div>
+    <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
+    <p> <%= link_to "記録詳細",record_path(record.id),class:"btn btn-sm btn-success" %></p>
   </div><!-- /.col-lg-4 -->
   <script>
-  $('#star-rate-<%= records.id %>').raty({
+  $('#star-rate-<%= record.id %>').raty({
    size: 36,
    starOff:  '<%= asset_path('star-off.png') %>',
    starOn : '<%= asset_path('star-on.png') %>',
    starHalf: '<%= asset_path('star-half.png') %>',
    half: true,
    readOnly: true,
-   score: <%= records.rate %>,
+   score: <%= record.rate %>,
    });
   </script>
   <% end %>

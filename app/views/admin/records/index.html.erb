@@ -7,15 +7,17 @@
       <th>メニュー名</th>
       <th></th>
     </thead>
-     
+    
+     <% @records.each do |record| %>
     <tbody>
      <tr>
-       <td></td>
-       <td></td>
-       <td></td>
+       <td><%= @user.name %></td>
+       <td><%= record.shop_name %></td>
+       <td><%= record.name %></td>
        <td></td>
      </tr>
     </tbody>
+    <% end %>
   </table>
  </div>
 </div>
