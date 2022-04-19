@@ -5,6 +5,7 @@ class User::RecordsController < ApplicationController
   end
 
   def index
+   @total_records =Record.all
    @records =Record.page(params[:page])
   end
 
@@ -24,6 +25,11 @@ class User::RecordsController < ApplicationController
 
   def edit
    @record = Record.find(params[:id])
+   if @record == current_user
+    render "edit"
+   else
+    redirect_to records_path
+   end
   end
 
   def update

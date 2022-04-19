@@ -7,14 +7,14 @@
       <th>メニュー名</th>
       <th></th>
     </thead>
-    
+
      <% @records.each do |record| %>
     <tbody>
      <tr>
-       <td><%= @user.name %></td>
+       <td><%= record.user.name %></td>
        <td><%= record.shop_name %></td>
        <td><%= record.name %></td>
-       <td></td>
+       <td><%= link_to "削除",admin_record_path(record.id), method: :delete, "data-confirm" => "本当に消しますか？" ,class:"btn btn-sm btn-danger"%></td>
      </tr>
     </tbody>
     <% end %>

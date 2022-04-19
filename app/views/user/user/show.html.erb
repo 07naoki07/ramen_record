@@ -29,9 +29,11 @@
 	<td><%= @user.introduction %></td>
 </tr>
 </table>
+  <% if @user == current_user %>
  <button type="button" class="btn btn-outline-secondary">
-  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+   <%= link_to "プロフィール編集", edit_user_path(@user) %>
  </button>
+  <% end %>
  <hr class="featurette-divider">
 <div class="row">
 <% @records.each do |record| %>

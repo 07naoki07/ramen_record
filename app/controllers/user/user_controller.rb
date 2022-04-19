@@ -5,6 +5,7 @@ class User::UserController < ApplicationController
   end
 
  def index
+   @total_users = User.all
    @users = User.page(params[:page])
  end
 

@@ -51,7 +51,12 @@
 
     <tr>
      <td>
-      <%= link_to "編集する",edit_record_path(@record.id),class:"btn btn-sm btn-success" %>
+      <% if @user == current_user %>
+       <%= link_to "編集",edit_record_path(@record.id),class:"btn btn-sm btn-success" %>
+      <% end %>
+      <% if @user == current_user %>
+       <%= link_to "削除",record_path(@record.id), method: :delete, "data-confirm" => "本当に消しますか？" ,class:"btn btn-sm btn-danger"%>
+      <% end %>
      </td>
     </tr>
 
