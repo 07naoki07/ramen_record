@@ -3,8 +3,8 @@
 <tr>
  <td><%= image_tag @user.get_profile_image(200,200) %></td>
  <td class="records">投稿</br><%= @user.records.count %></td>
- <td class="followings">フォロー数</br><%= @user.followings.count %></td>
- <td class="followers">フォロワー数</br><%= @user.followers.count %></td>
+ <td class="followings">フォロー数</br><%=link_to @user.followings.count ,user_followings_path(@user.id) %></td>
+ <td class="followers">フォロワー数</br><%=link_to @user.followers.count ,user_followers_path(@user.id) %></td>
  <td>
  	<% unless current_user == @user %>
  	<% if current_user.following?(@user) %>

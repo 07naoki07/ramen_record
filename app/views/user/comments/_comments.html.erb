@@ -1,9 +1,0 @@
-<% record.comments.each do |comment| %>
- <%= image_tag comment.user.get_profile_image(40,40) %>
- <%= comment.user.name %>
- <%= comment.comment %>
-
- <% if comment.user == current_user %>
-  <%= link_to "削除", record_comment_path(record, comment), method: :delete, remote: true %>
- <% end %>
-<% end %>

@@ -1,5 +1,5 @@
 <div class="container">
-<h3>投稿フォーム</h3>
+<h3>New!記録投稿</h3>
  <%= form_with model: @record,:url => {:action => :create} do |f| %>
 
     <div class="form-group">
@@ -20,6 +20,13 @@
      <%= f.label :shop_name, "店名" %>
     <div class="col-auto">
      <%= f.text_field :shop_name %>
+    </div>
+    </div>
+
+　　<div class="form-group">
+     <%= f.label :address, "住所" %>
+    <div class="col-auto">
+     <%= f.text_field :address %>
     </div>
     </div>
 

@@ -8,7 +8,8 @@ class CreateRecords < ActiveRecord::Migration[6.1]
       t.text :caption
       t.float :rate, null: false, default: 0
       t.string :address
-
+      t.float :latitube
+      t.float :longitude
       t.timestamps
 
     end

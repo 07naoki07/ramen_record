@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     get 'records/search'
     resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :likes, only:[:create, :destroy]
-    resources :comments, only:[:create, :destroy]
+    resources :comments, only:[:create, :destroy, :index]
     end
     resources :user, only:[:show, :edit, :update, :index] do
      resource :relationships, only: [:create, :destroy]

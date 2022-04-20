@@ -33,5 +33,16 @@
   });
 </script>
 <% end %>
-<%= paginate @records %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-6 offset-md-3 py-2">
+   <div class="text-center">
+    <ul class="pagination justify-content-center">
+     <%= paginate @records %>
+    </ul>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
 </div>

@@ -1,0 +1,26 @@
+<div class="container">
+<h2>コメント一覧</h2>
+<div class="row">
+ <table class ="table">
+  <thead>
+   <th>ユーザー画像</th>
+   <th>ユーザー名</th>
+   <th>コメント</th>
+   <th></th>
+  </thead>
+  <% @comments.each do |comment| %>
+   <tbody>
+    <td><%= image_tag comment.user.get_profile_image(40,40) %></td>
+    <td> <%= comment.user.name %></td>
+    <td> <%= comment.comment %></td>
+    <td>
+     <% if comment.user == current_user %>
+      <%#= link_to "削除", record_comment_path(@record,comments), method: :delete %>
+     <% end %>
+    </td>
+   </tbody>
+  <% end %>
+ </table>
+</div> 
+</div>
+

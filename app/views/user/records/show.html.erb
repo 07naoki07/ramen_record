@@ -43,6 +43,13 @@
     </tr>
 
     <tr>
+     <td>住所</td>
+     <td>
+      <div id='map'></div>
+     </td>
+    </tr>
+
+    <tr>
      <td>説明</td>
      <td>
       <%= @record.caption%>
@@ -76,6 +83,39 @@
   });
 </script>
 
+<style>
+#map {
+  height: 300px;
+  width: 400px;
+}
+</style>
+
+<script>
+  let map
+
+  function initMap(){
+    geocoder = new google.maps.Geocoder()
+    var test ={lat: <%= @record.latitube %>,lng: <%= @record.longitude %>};
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: test,
+      zoom: 15,
+    });
+
+    var contentString = '住所：<%= @record.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    marker = new google.maps.Marker({
+      position:  test,
+      map: map,
+      title: contentString
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API'] %>&callback=initMap" async defer></script>
+
   <div class = "row">
   <table class ="table">
 
@@ -90,15 +130,10 @@
   <table class ="table">
     <tr>
      <td>いいね</td>
-     <td>
-      <%= render "user/likes/likes", record: @record %>
+     <td class="like-btn" id="record_<%= @record.id %>"  ><%= render "user/likes/likes", record: @record %>
      </td>
-    </tr>
-    <tr>
-     <td>コメント一覧</td>
-     <td>
-      <%= render "user/comments/comments", record: @record, comment: @comment, comments: @comments%>
-     </td>
+     <td>コメント数</td>
+     <td><%=link_to @record.comments.count,record_comments_path(@record.id) %></td>
     </tr>
   </table>
   </div>

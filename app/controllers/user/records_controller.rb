@@ -18,6 +18,7 @@ class User::RecordsController < ApplicationController
 
   def show
    @record = Record.find(params[:id])
+   gon.record = @record
    @user = @record.user
    @comment = Comment.new
    @comments = @record.comments
