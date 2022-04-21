@@ -12,8 +12,11 @@ class User::RecordsController < ApplicationController
   def create
    @record = Record.new(record_params)
    @record.user_id = current_user.id
-   @record.save
-   redirect_to records_path
+   if @record.save
+    redirect_to records_path
+   else
+    render "new"
+   end
   end
 
   def show
@@ -26,17 +29,20 @@ class User::RecordsController < ApplicationController
 
   def edit
    @record = Record.find(params[:id])
-   if @record == current_user
+   if @record.user == current_user
     render "edit"
    else
-    redirect_to records_path
+    render "index"
    end
   end
 
   def update
    @record = Record.find(params[:id])
-   @record.update(record_params)
-   redirect_to record_path(@record.id)
+   if @record.update(record_params)
+    redirect_to record_path(@record.id)
+   else
+    render "edit"
+   end
   end
 
   def destroy
