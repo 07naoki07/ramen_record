@@ -1,7 +1,8 @@
 class User::CommentsController < ApplicationController
 
  def index
-  @comments =Comment.all
+  @record = Record.find(params[:record_id])
+  @comments =@record.comments
  end
 
  def create
@@ -14,8 +15,8 @@ class User::CommentsController < ApplicationController
 
   def destroy
    @record = Record.find(params[:record_id])
-   comment = @record.comments.find(params[:id])
-   comment.destroy
+   @comment = @record.comments.find(params[:id])
+   @comment.destroy
    redirect_to request.referer
   end
 

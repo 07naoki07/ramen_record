@@ -15,12 +15,12 @@
     <td> <%= comment.comment %></td>
     <td>
      <% if comment.user == current_user %>
-      <%#= link_to "削除", record_comment_path(@record,comments), method: :delete %>
+      <%= link_to "削除", record_comment_path(@record,comment), method: :delete %>
      <% end %>
     </td>
    </tbody>
   <% end %>
  </table>
-</div> 
+</div>
 </div>
 
