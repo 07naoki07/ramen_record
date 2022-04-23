@@ -27,18 +27,19 @@
   </script>
   <% end %>
  </div><!-- /.row -->
-<h4>いいね数ランキング</h4>
+<h4>いいね数順</h4>
  <div class="row">
-  <% @all_ranks.each do |record| %>
+  <% @all_ranks.each.with_index(1) do |record,i| %>
    <div class="col-lg-4 col-md-6 mb-4">
+    <h4>第<%= i %>位</h4>
 　 <img class="rounded-circle">
     <%=image_tag record.get_image,size: '140x140' %>
     </img>
-    <h2><%= record.name %></h2>
+    <p><%= record.name %></p>
     <div id="star-rate-<%= record.id %>"></div>
     <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
     <p> <%= link_to "記録詳細",record_path(record.id),class:"btn btn-sm btn-success" %></p>
-   </div><!-- /.col-lg-4 -->
+    </div><!-- /.col-lg-4 -->
   <% end %>
  </div>
   <hr class="featurette-divider">
@@ -81,7 +82,7 @@
     </p>
    </div>
    <div class="col-md-5">
-    <%=image_tag "rogu.png",size: '200x200' %>
+    <%=image_tag "top_icon3.png",size: '200x200' %>
    </div>
   </div>
 
