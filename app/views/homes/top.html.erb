@@ -2,7 +2,7 @@
  <div class="center-block">
   <%= image_tag "home_top.png",size: '1000x500'%>
  </div>
-<h4>NEW記録</h4>
+<h4>!!NEW!!</h4>
  <div class="row">
    <% @records.each do |record| %>
   <div class="col-lg-4 col-md-6 mb-4">
@@ -27,9 +27,22 @@
   </script>
   <% end %>
  </div><!-- /.row -->
- 
+<h4>いいね数ランキング</h4>
+ <div class="row">
+  <% @all_ranks.each do |record| %>
+   <div class="col-lg-4 col-md-6 mb-4">
+　 <img class="rounded-circle">
+    <%=image_tag record.get_image,size: '140x140' %>
+    </img>
+    <h2><%= record.name %></h2>
+    <div id="star-rate-<%= record.id %>"></div>
+    <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
+    <p> <%= link_to "記録詳細",record_path(record.id),class:"btn btn-sm btn-success" %></p>
+   </div><!-- /.col-lg-4 -->
+  <% end %>
+ </div>
   <hr class="featurette-divider">
-  
+
   <div class="row featurette">
    <div class="col-md-7">
    <h2 class="featurette-heading">ラーメン記録って？？ </h2>
@@ -49,7 +62,7 @@
    <div class="col-md-7 order-md-2">
     <h2 class="featurette-heading">何が出来るの？？</h2>
     <p class="lead">
-     ラーメン記録はSNS感覚で楽しみながら、食べたを記録をしたり、日本中のラーメン愛好家さんたちとコミューケーションをとることができます。     
+     ラーメン記録はSNS感覚で楽しみながら、食べたを記録をしたり、日本中のラーメン愛好家さんたちとコミューケーションをとることができます。
     </p>
    </div>
    <div class="col-md-5 order-md-1">
