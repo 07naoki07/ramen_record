@@ -1,80 +1,84 @@
 <div class="container">
-<h3>New!記録投稿</h3>
- <%= form_with model: @record,:url => {:action => :create} do |f| %>
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+   <h3>New!ラーメン</h3>
+    <%= form_with model: @record,:url => {:action => :create} do |f| %>
 
-  <% if @record.errors.any? %>
-   <div class="alert alert-warning">
-    <ul>
-     <% @record.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
+     <% if @record.errors.any? %>
+      <div class="alert alert-warning">
+       <ul>
+        <% @record.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+        <% end %>
+       </ul>
+      </div>
      <% end %>
-    </ul>
-   </div>
-  <% end %>
 
-    <div class="form-group">
-     <%= f.label :image, "ラーメン写真" %>
-    <div class="col-auto">
-     <%= f.file_field :image %>
-    </div>
-    </div>
+       <div class="form-group">
+        <%= f.label :image, "ラーメン写真" %>
+       <div class="col-auto">
+        <%= f.file_field :image %>
+       </div>
+       </div>
 
-    <div class="form-group">
-     <%= f.label :name, "メニュー" %>
-    <div class="col-auto">
-     <%= f.text_field :name %>
-    </div>
-    </div>
+       <div class="form-group">
+        <%= f.label :name, "メニュー" %>
+       <div class="col-auto">
+        <%= f.text_field :name,class:"form-control" %>
+       </div>
+       </div>
 
-    <div class="form-group">
-     <%= f.label :shop_name, "店名" %>
-    <div class="col-auto">
-     <%= f.text_field :shop_name %>
-    </div>
-    </div>
+       <div class="form-group">
+        <%= f.label :shop_name, "店名" %>
+       <div class="col-auto">
+        <%= f.text_field :shop_name,class:"form-control" %>
+       </div>
+       </div>
 
-　　<div class="form-group">
-     <%= f.label :address, "住所" %>
-    <div class="col-auto">
-     <%= f.text_field :address %>
-    </div>
-    </div>
+   　　<div class="form-group">
+        <%= f.label :address, "住所" %>
+       <div class="col-auto">
+        <%= f.text_field :address,class:"form-control" %>
+       </div>
+       </div>
 
-    <div class="form-group">
-     <%= f.label :caption, "説明" %>
-    <div class="col-auto">
-     <%= f.text_area :caption %>
-    </div>
-    </div>
+       <div class="form-group">
+        <%= f.label :caption, "説明" %>
+       <div class="col-auto">
+        <%= f.text_area :caption,class:"form-control" %>
+       </div>
+       </div>
 
-    <div class="form-group">
-     <%= f.label :created_at, "食べた日付" %>
-    <div class="col-auto">
-     <%= f.date_field :created_at %>
-    </div>
-    </div>
+       <div class="form-group">
+        <%= f.label :created_at, "食べた日付" %>
+       <div class="col-auto">
+        <%= f.date_field :created_at,class:"form-control" %>
+       </div>
+       </div>
 
-    <div class="form-group" id="star">
-     <%= f.label :rate, "評価" %>
-    <div class="col-auto">
-     <%= f.hidden_field :rate, id: :review_star %>
-    </div>
-    </div>
+       <div class="form-group" id="star">
+        <%= f.label :rate, "評価" %>
+       <div class="col-auto">
+        <%= f.hidden_field :rate, id: :review_star %>
+       </div>
+       </div>
 
-    <div class="actions">
-     <%= f.submit '投稿',class:"btn btn-sm btn-success" %>
-    </div>
+       <div class="actions">
+        <%= f.submit '投稿',class:"btn btn-lg btn-block btn-success mt-4" %>
+       </div>
 
-    <script>
-     $('#star').raty({
-     size: 36,
-     starOn: "<%= asset_path('star-on.png') %>",
-     starOff: "<%= asset_path('star-off.png') %>",
-     starHalf: "<%= asset_path('star-half.png') %>",
-     scoreName: "record[rate]",
-     half: true
-     });
-    </script>
+       <script>
+        $('#star').raty({
+        size: 36,
+        starOn: "<%= asset_path('star-on.png') %>",
+        starOff: "<%= asset_path('star-off.png') %>",
+        starHalf: "<%= asset_path('star-half.png') %>",
+        scoreName: "record[rate]",
+        half: true
+        });
+       </script>
 
- <% end %>
+    <% end %>
+  </div>
  </div>
+</div>

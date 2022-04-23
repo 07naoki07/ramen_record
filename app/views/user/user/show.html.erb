@@ -3,18 +3,14 @@
 <tr>
  <td><%= image_tag @user.get_profile_image(200,200) %></td>
  <td class="records">投稿</br><%= @user.records.count %></td>
- <td class="followings">フォロー数</br><%=link_to @user.followings.count ,user_followings_path(@user.id) %></td>
- <td class="followers">フォロワー数</br><%=link_to @user.followers.count ,user_followers_path(@user.id) %></td>
+ <td class="followings">フォロー数</br><%=link_to @user.followings.count ,user_followings_path(@user.id),class:"text-dark" %></td>
+ <td class="followers">フォロワー数</br><%=link_to @user.followers.count ,user_followers_path(@user.id),class:"text-dark"  %></td>
  <td>
  	<% unless current_user == @user %>
  	<% if current_user.following?(@user) %>
-   <button type="button" class="btn btn-outline-secondary">
-    <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete %>
-   </button>
+   <%= link_to "フォロー外す", user_relationships_path(@user.id), method: :delete,class:"btn btn-secondary" %>
   <% else %>
-   <button type="button" class="btn btn-outline-primary">
-    <%= link_to "フォローする", user_relationships_path(@user.id), method: :post %>
-   </button>
+   <%= link_to "フォローする", user_relationships_path(@user.id), method: :post,class:"btn btn-primary" %>
   <% end %>
   <% end %>
  </td>
@@ -30,9 +26,7 @@
 </tr>
 </table>
   <% if @user == current_user %>
- <button type="button" class="btn btn-outline-secondary">
-   <%= link_to "プロフィール編集", edit_user_path(@user) %>
- </button>
+   <%= link_to "プロフィール編集", edit_user_path(@user),class:"btn btn-secondary" %>
   <% end %>
  <hr class="featurette-divider">
 <div class="row">

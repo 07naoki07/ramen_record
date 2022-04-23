@@ -2,19 +2,22 @@
  <div class="center-block">
   <%= image_tag "home_top.png",size: '1000x500'%>
  </div>
-<h4>!!NEW!!</h4>
+
+<h3>いいね数ランキング</h3>
  <div class="row">
-   <% @records.each do |record| %>
-  <div class="col-lg-4 col-md-6 mb-4">
+  <% @all_ranks.each.with_index(1) do |record,i| %>
+   <div class="col-lg-4 col-md-6 mb-4">
+    <h5>第<%= i %>位</h5>
 　 <img class="rounded-circle">
     <%=image_tag record.get_image,size: '140x140' %>
     </img>
-    <h2><%= record.name %></h2>
+    <h5><%= record.shop_name %></h5>
+    <p><%= record.name %></p>
     <div id="star-rate-<%= record.id %>"></div>
     <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
     <p> <%= link_to "記録詳細",record_path(record.id),class:"btn btn-sm btn-success" %></p>
-  </div><!-- /.col-lg-4 -->
-  <script>
+    </div><!-- /.col-lg-4 -->
+    <script>
   $('#star-rate-<%= record.id %>').raty({
    size: 36,
    starOff:  '<%= asset_path('star-off.png') %>',
@@ -26,24 +29,23 @@
    });
   </script>
   <% end %>
- </div><!-- /.row -->
-<h4>いいね数順</h4>
+ </div>
+
+<h4>!!NEW!!</h4>
  <div class="row">
-  <% @all_ranks.each.with_index(1) do |record,i| %>
-   <div class="col-lg-4 col-md-6 mb-4">
-    <h4>第<%= i %>位</h4>
+   <% @records.each do |record| %>
+  <div class="col-lg-4 col-md-6 mb-4">
 　 <img class="rounded-circle">
     <%=image_tag record.get_image,size: '140x140' %>
     </img>
-    <p><%= record.name %></p>
-    <div id="star-rate-<%= record.id %>"></div>
+    <h4><%= record.name %></h4>
     <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
     <p> <%= link_to "記録詳細",record_path(record.id),class:"btn btn-sm btn-success" %></p>
-    </div><!-- /.col-lg-4 -->
+  </div><!-- /.col-lg-4 -->
   <% end %>
- </div>
-  <hr class="featurette-divider">
+ </div><!-- /.row -->
 
+  <hr class="featurette-divider">
   <div class="row featurette">
    <div class="col-md-7">
    <h2 class="featurette-heading">ラーメン記録って？？ </h2>
