@@ -1,0 +1,48 @@
+<div class="contair">
+<h2 class="text-center">
+ TOTAL</br>(<%= @total_records.count %>ラーメン)
+</h2>
+<% @records.each do |record| %>
+<div class="card w-50 mx-auto mt-4">
+ <div class="row no-gutters">
+  <div class="col-lg-6">
+   <%= link_to record_path(record) do %>
+    <%= image_tag record.get_image,size: '200x200' %>
+   <% end %>
+  </div>
+  <div class="col-lg-6">
+  　<div class="card-body">
+     <h4 class="card-title"><%= record.shop_name %></h4>
+     <p class="card-text"><%= record.name %></p>
+     <div id="star-rate-<%= record.id %>"></div>
+     <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
+     <small class="text-muted"> <%= record.created_at.strftime("%Y年 %m月 %d日") %></small>
+    </div>
+  </div>
+ </div>
+</div>
+<script>
+ $('#star-rate-<%= record.id %>').raty({
+  size: 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  half: true,
+  readOnly: true,
+  score: <%= record.rate %>,
+  });
+</script>
+<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-6 offset-md-3 py-2">
+   <div class="text-center">
+    <ul class="pagination justify-content-center">
+     <%= paginate @records %>
+    </ul>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+</div>

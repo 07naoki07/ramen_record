@@ -1,17 +1,34 @@
 Rails.application.routes.draw do
 
-  devise_for :admins, controllers: {
-  sessions:      'admins/sessions',
-  passwords:     'admins/passwords',
-  registrations: 'admins/registrations'
-  }
-  devise_for :users, controllers: {
-  sessions:      'users/sessions',
-  passwords:     'users/passwords',
-  registrations: 'users/registrations'
+  root "homes#top"
+
+  devise_for :users,skip: [:passwords], controllers: {
+    registrations: "users/registrations",
+    sessions: 'users/sessions'
   }
 
-  get 'homes/top'
-  root to:"homes#top"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :admins, skip: [:registrations,:passwords] ,controllers: {
+    sessions: "admins/sessions"
+  }
+
+  scope module: :user do
+    resources :ramen_shops, only:[:create, :index, :edit, :update]
+    get 'records/search'
+    resources :records, only:[:new, :create, :index, :show, :edit, :update, :destroy] do
+    resource :likes, only:[:create, :destroy]
+    resources :comments, only:[:create, :destroy, :index]
+    end
+    resources :user, only:[:show, :edit, :update, :index] do
+     resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
+    end
+  end
+
+  namespace :admin do
+    resources :records, only:[:index, :show, :destroy]
+    resources :comments, only:[:index, :show, :destroy]
+    resources :user, only:[:index, :destroy]
+  end
+
 end

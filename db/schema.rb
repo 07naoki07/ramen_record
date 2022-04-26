@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_04_195513) do
+ActiveRecord::Schema.define(version: 2022_04_13_140705) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,31 +55,40 @@ ActiveRecord::Schema.define(version: 2022_04_04_195513) do
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
     t.integer "record_id"
+    t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "record"
+    t.integer "record_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ramen_shops", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "records", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "name"
+    t.string "name"
     t.string "shop_name"
-    t.text "review"
-    t.float "rate"
+    t.text "caption"
+    t.float "rate", default: 0.0, null: false
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
-    t.integer "follow_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -88,6 +97,7 @@ ActiveRecord::Schema.define(version: 2022_04_04_195513) do
     t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.text "introduction"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

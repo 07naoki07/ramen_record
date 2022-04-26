@@ -1,0 +1,36 @@
+<div class="contair">
+<h2 class="text-center">
+ TOTAL</br>(<%= @total_users.count %>ユーザー)
+</h2>
+<% @users.each do |user| %>
+<div class="card w-50 mx-auto mt-4">
+ <div class="row no-gutters">
+  <div class="col-lg-6">
+   <%= link_to user_path(user) do %>
+    <%= image_tag user.get_profile_image(200,200) %>
+   <% end %>
+  </div>
+  <div class="col-lg-6">
+  　<div class="card-body">
+     <h4 class="card-title"><%= user.name %></h4>
+     <p class="card-text">投稿数<%= user.records.count %></p>
+     <small class="text-muted">フォロー数：<%= user.followings.count %></small>
+     <small class="text-muted">フォロワー数：<%= user.followers.count %></small>
+    </div>
+  </div>
+ </div>
+</div>
+<% end %>
+<div class="container">
+ <div class="row">
+  <div class="col-md-6 offset-md-3 py-2">
+   <div class="text-center">
+    <ul class="pagination justify-content-center">
+     <%= paginate @users %>
+    </ul>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+</div>
