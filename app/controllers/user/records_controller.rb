@@ -13,7 +13,7 @@ class User::RecordsController < ApplicationController
    @record = Record.new(record_params)
    @record.user_id = current_user.id
    if @record.save
-    redirect_to records_path
+    redirect_to record_path(@record.id)
    else
     render "new"
    end
@@ -47,8 +47,9 @@ class User::RecordsController < ApplicationController
 
   def destroy
     @record = Record.find(params[:id])
+    @user = @record.user
     @record.destroy
-    redirect_to records_path
+    redirect_to user_path(@user.id)
   end
 
   private
