@@ -106,14 +106,14 @@
 
 <!--  function initMap(){-->
 <!--    geocoder = new google.maps.Geocoder()-->
-<!--    var test ={lat: <%#= @record.latitude %>,lng: <%#= @record.longitude %>};-->
+<!--    var test ={lat: <%# @record.latitude %>,lng: <%# @record.longitude %>};-->
 
 <!--    map = new google.maps.Map(document.getElementById("map"), {-->
 <!--      center: test,-->
 <!--      zoom: 15,-->
 <!--    });-->
 
-<!--    var contentString = "住所：<%#= @record.address %>";-->
+<!--    var contentString = "住所：<%# @record.address %>";-->
 <!--    var infowindow = new google.maps.InfoWindow({-->
 <!--      content: contentString-->
 <!--    });-->
@@ -125,7 +125,7 @@
 <!--    });-->
 <!--  }-->
 <!--</script>-->
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=<%#= Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>-->
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=<%# Rails.application.credentials.google_map_api_key %>&callback=initMap" async defer></script>-->
 
   <div class = "row">
   <table class ="table">
