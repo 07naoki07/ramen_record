@@ -2,6 +2,7 @@
 <h2 class="text-center">
  TOTAL</br>(<%= @total_users.count %>ユーザー)
 </h2>
+<div class="scroll-list jscroll">
 <% @users.each do |user| %>
 <div class="card w-50 mx-auto mt-4">
  <div class="row no-gutters">
@@ -21,16 +22,8 @@
  </div>
 </div>
 <% end %>
-<div class="container">
- <div class="row">
-  <div class="col-md-6 offset-md-3 py-2">
-   <div class="text-center">
-    <ul class="pagination justify-content-center">
-     <%= paginate @users %>
-    </ul>
-   </div>
-  </div>
- </div>
+
+   <%= paginate @users %>
+　</div>
 </div>
-</div>
-</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
