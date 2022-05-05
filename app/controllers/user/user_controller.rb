@@ -6,7 +6,7 @@ class User::UserController < ApplicationController
 
  def index
    @total_users = User.all
-   @users = User.page(params[:page])
+   @users = Kaminari.paginate_array(@total_users).page(params[:page]).per(7)
  end
 
  def edit
