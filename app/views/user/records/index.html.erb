@@ -2,6 +2,7 @@
 <h2 class="text-center">
  TOTAL</br>(<%= @total_records.count %>ラーメン)
 </h2>
+<div class="scroll-list jscroll">
 <% @records.each do |record| %>
 <div class="card w-50 mx-auto mt-4">
  <div class="row no-gutters">
@@ -16,7 +17,7 @@
      <p class="card-text"><%= record.name %></p>
      <div id="star-rate-<%= record.id %>"></div>
      <small class="text-muted"> ♡<%= record.likes.count %> いいね</small>
-     <small class="text-muted"> <%= record.created_at.strftime("%Y年 %m月 %d日") %></small>
+     <small class="text-muted"> <%= record.date %></small>
     </div>
   </div>
  </div>
@@ -33,16 +34,21 @@
   });
 </script>
 <% end %>
-<div class="container">
- <div class="row">
-  <div class="col-md-6 offset-md-3 py-2">
-   <div class="text-center">
-    <ul class="pagination justify-content-center">
-     <%= paginate @records %>
-    </ul>
-   </div>
-  </div>
- </div>
+<%= paginate @records %>
 </div>
 </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+<script>
+$(window).on('scroll', function() {
+    scrollHeight = $(document).height();
+    scrollPosition = $(window).height() + $(window).scrollTop();
+    if ( (scrollHeight - scrollPosition) / scrollHeight <= 0.05) {
+          $('.jscroll').jscroll({
+            contentSelector: '.scroll-list',
+            nextSelector: 'span.next:last a'
+          });
+    }
+});
+</script>
