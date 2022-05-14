@@ -17,7 +17,8 @@
 食べたラーメンを記録に残すことができたり、
 新しいお店を見つけることができる・自分のおすすめを伝えることができる。
 ## 設計書
-<p>・
+・ER図
+<p>
 <img width="577" alt="ER図" src="https://user-images.githubusercontent.com/98796937/168440663-636343f4-0856-4f88-b2ab-def175931074.png">
 </p>
 <p>・テーブル定義書</br>
@@ -26,12 +27,12 @@ https://docs.google.com/spreadsheets/d/1B_F1TeU9MBZOXzd-8-Fm9qRjFTs4CV9l3-yq94SP
 <p>・アプリ詳細設計書</br>
 https://docs.google.com/spreadsheets/d/1NcChBvUzpZUKVwBW4Q2VVt2NcX8_xcEZqaq4E2_5a5g/edit?usp=sharing
 </p>
-## 開発環境
+
+## 開発環境</br>
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
 - IDE：Cloud9
-
 ## 使用素材
 - シルエットAC  URL:http://www.silhouette-ac.com/
