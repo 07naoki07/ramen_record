@@ -18,7 +18,7 @@
 新しいお店を見つけることができる・自分のおすすめを伝えることができる。
 ## 設計書
 ・ER図
-https://github.com/07naoki07/ramen_record/issues/17#issue-1236069189
+https://user-images.githubusercontent.com/98796937/168440663-636343f4-0856-4f88-b2ab-def175931074.png
 ・テーブル定義書
 https://docs.google.com/spreadsheets/d/1B_F1TeU9MBZOXzd-8-Fm9qRjFTs4CV9l3-yq94SPHyQ/edit?usp=sharing
 ・アプリ詳細設計書
