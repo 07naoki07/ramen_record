@@ -28,7 +28,7 @@ https://docs.google.com/spreadsheets/d/1B_F1TeU9MBZOXzd-8-Fm9qRjFTs4CV9l3-yq94SP
 https://docs.google.com/spreadsheets/d/1NcChBvUzpZUKVwBW4Q2VVt2NcX8_xcEZqaq4E2_5a5g/edit?usp=sharing
 </p>
 
-## 開発環境</br>
+## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
