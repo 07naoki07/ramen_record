@@ -1,10 +1,9 @@
 class User::RamenShopsController < ApplicationController
-  
+
   def index
-   @ramen_shop = Ramen_Shop.new
-   @ramen_shops = Ramen_Shop.all
+
   end
-  
+
   def create
    @ramen_shop = Ramen_Shop.new(ramen_shop_params)
    if @ramen_shop.save
@@ -13,15 +12,15 @@ class User::RamenShopsController < ApplicationController
      render :index
    end
   end
-  
+
   def show
    @ramen_shop = Ramen_Shop.find(params[:id])
   end
-  
+
   def edit
     @ramen_shop = Ramen_Shop.find(params[:id])
   end
-  
+
   def update
     @record = Record.find(params[:id])
     ramen_shop_list = params[:record][:ramen_shop].split(',')
@@ -32,11 +31,11 @@ class User::RamenShopsController < ApplicationController
       render index
     end
   end
-  
+
   private
-  
+
   def ramen_shop_params
-    params.require(:record).permit(:user_id, :name, :shop_name, :caption, :rate, :address, :image)
+    params.require(:ramen_shop).permit(:name)
   end
-  
+
 end
