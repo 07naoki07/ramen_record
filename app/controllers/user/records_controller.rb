@@ -21,7 +21,7 @@ class User::RecordsController < ApplicationController
 
   def show
    @record = Record.find(params[:id])
-   @genres = Genre.all
+   @genre = Genre.find(@record.genre_id)
    gon.record = @record
    @user = @record.user
    @comment = Comment.new

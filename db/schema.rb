@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2022_05_23_034900) do
   end
 
   create_table "records", force: :cascade do |t|
+    t.integer "genre_id"
     t.integer "user_id"
     t.string "name"
     t.string "shop_name"
