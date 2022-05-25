@@ -21,6 +21,7 @@ class User::RecordsController < ApplicationController
 
   def show
    @record = Record.find(params[:id])
+   @genre = Genre.find(@record.genre_id)
    gon.record = @record
    @user = @record.user
    @comment = Comment.new
@@ -55,6 +56,6 @@ class User::RecordsController < ApplicationController
   private
 
   def record_params
-   params.require(:record).permit(:user_id, :name, :shop_name, :caption, :rate, :address, :image, :date)
+   params.require(:record).permit(:user_id, :name, :shop_name, :caption, :rate, :address, :image, :date, :genre_id)
   end
 end

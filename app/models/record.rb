@@ -5,6 +5,8 @@ class Record < ApplicationRecord
 
  has_many :likes, dependent: :destroy
  has_many :comments, dependent: :destroy
+ has_many :genre_records, dependent: :destroy
+ has_many :genres, through: :genre_records
 
   geocoded_by :address
   after_validation :geocode

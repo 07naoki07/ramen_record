@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :records, only:[:index, :show, :destroy]
     resources :comments, only:[:index, :show, :destroy]
     resources :user, only:[:index, :destroy]
+    resources :genres,only:[:create, :index, :edit, :update, :destroy]
   end
 
 end

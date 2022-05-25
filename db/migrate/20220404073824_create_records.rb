@@ -2,6 +2,7 @@ class CreateRecords < ActiveRecord::Migration[6.1]
   def change
     create_table :records do |t|
 
+      t.integer :genre_id
       t.integer :user_id
       t.string :name
       t.string :shop_name
