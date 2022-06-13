@@ -10,6 +10,10 @@ class Record < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode
+  
+  def self.most_liked(n = 3)
+   where(id: Like.group(:record_id).order('count(record_id) desc').limit(n).pluck(:record_id))
+  end
 
   def get_image
     unless image.attached?
